@@ -18,7 +18,6 @@ class BottomNav extends StatelessWidget {
             _NavIcon(icon: Icons.home_filled, label: 'Inicio', active: true),
             _NavIcon(icon: Icons.menu_book_outlined, label: 'Biblioteca'),
             _NavIcon(icon: Icons.calculate_outlined, label: 'Calculadora'),
-            _NavIcon(icon: Icons.person_outline, label: 'Perfil'),
           ],
         ),
       ),

@@ -18,10 +18,6 @@ class QuickActions extends StatelessWidget {
         icon: Icons.graphic_eq_outlined,
         label: 'Curvas',
       ),
-      _QuickActionItem(
-        icon: Icons.storage_outlined,
-        label: 'Banco',
-      ),
     ];
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
