@@ -2,14 +2,21 @@ import '../models/chapter.dart';
 
 const chapters = [
   Chapter(
-    title: 'Fundamentos de Produção',
-    subtitle: 'Pressão, vazão e balanço de energia',
+    title: 'Capacity',
+    subtitle: 'Capacity formulas, calculations and tables',
     code: 'CAP-01',
     topics: [
-      'Gradiente de pressão',
-      'Vazão crítica',
-      'Perda de carga em linhas',
-      'Eficiência de elevação',
+      'Formulas',
+      'Tubing',
+      'Coiled Tubing',
+      'Internal Upset Drill Pipe',
+      'Hydril Internal Flush, External Upset Drill Pipe',
+      'Hydril Internal And External Upset Drill Pipe',
+      'Hydril Internal Upset, External Flush Drill Pipe',
+      'Casing',
+      'Hydril External Upset Casing',
+      'Spang-Chalfant Extreme Line Casing.',
+      'Hole',
     ],
   ),
   Chapter(

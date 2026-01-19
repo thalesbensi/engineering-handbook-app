@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/chapter.dart';
+import 'capacity_formulas_page.dart';
 
 class ChapterDetailPage extends StatelessWidget {
   const ChapterDetailPage({super.key, required this.chapter});
@@ -34,42 +35,57 @@ class ChapterDetailPage extends StatelessWidget {
                   ),
             ),
             const SizedBox(height: 20),
-            ...chapter.topics.map(
-              (topic) => Container(
-                margin: const EdgeInsets.only(bottom: 12),
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.95),
-                  borderRadius: BorderRadius.circular(18),
+            ...chapter.topics.map((topic) {
+              final isCapacityFormulas =
+                  chapter.title == 'Capacity' && topic == 'Formulas';
+              return InkWell(
+                borderRadius: BorderRadius.circular(18),
+                onTap: isCapacityFormulas
+                    ? () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const CapacityFormulasPage(),
+                          ),
+                        );
+                      }
+                    : null,
+                child: Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.95),
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 42,
+                        height: 42,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF0E7D8),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Icon(
+                          Icons.menu_book_outlined,
+                          color: Color(0xFF13202D),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          topic,
+                          style:
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    color: const Color(0xFF13202D),
+                                  ),
+                        ),
+                      ),
+                      const Icon(Icons.chevron_right, color: Color(0xFF65707E)),
+                    ],
+                  ),
                 ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 42,
-                      height: 42,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF0E7D8),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Icon(
-                        Icons.menu_book_outlined,
-                        color: Color(0xFF13202D),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        topic,
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              color: const Color(0xFF13202D),
-                            ),
-                      ),
-                    ),
-                    const Icon(Icons.chevron_right, color: Color(0xFF65707E)),
-                  ],
-                ),
-              ),
-            ),
+              );
+            }),
           ],
         ),
       ),
